@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Floating Particles (Hero Section) ----
   const heroParticles = document.getElementById('heroParticles');
   if (heroParticles) {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 8; i++) {
       const p = document.createElement('span');
       p.classList.add('particle');
-      const size = Math.random() * 60 + 20;
+      const size = Math.random() * 28 + 10;
       p.style.width = size + 'px';
       p.style.height = size + 'px';
       p.style.left = Math.random() * 100 + '%';
