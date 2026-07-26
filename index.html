@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Technology: A Sustainable Future</title>
+  <meta name="description" content="A visual presentation on Green Technology, its core principles, and its applications across global sectors."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ====== 3D CITY SCENE (pinned behind Hero + Overview) ====== -->
+  <div class="city-canvas-wrap" aria-hidden="true">
+    <canvas id="cityCanvas"></canvas>
+  </div>
+
+  <!-- ====== PROGRESS BAR ====== -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ====== NAV DOT INDICATOR ====== -->
+  <nav class="dot-nav" id="dotNav" aria-label="Section navigation">
+    <button class="dot active" data-target="hero" aria-label="Go to Hero"></button>
+    <button class="dot" data-target="overview" aria-label="Go to Overview"></button>
+    <button class="dot" data-target="goals" aria-label="Go to Core Goals"></button>
+    <button class="dot" data-target="sectors" aria-label="Go to Key Sectors"></button>
+    <button class="dot" data-target="impact" aria-label="Go to Impact & Challenges"></button>
+    <button class="dot" data-target="solutions" aria-label="Go to Risks & Solutions"></button>
+    <button class="dot" data-target="conclusion" aria-label="Go to Conclusion"></button>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="assets/images/hero_banner.png" alt="Futuristic sustainable city" class="hero-img" id="heroFallbackImg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content reveal">
+      <span class="hero-badge">Morning Assembly 2026</span>
+      <h1><span class="grad-text">Green Technology</span> & Innovation</h1>
+      <p class="hero-sub">Exploring how modern environmental technology is transforming every major sector of our world for a sustainable future.</p>
+      <div class="scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABSTRACT & OVERVIEW ====== -->
+  <section class="section section--dark section--dark-transparent" id="overview">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill">Abstract</span>
+        <h2>The Need for <span class="grad-text">Green Tech</span></h2>
+      </div>
+      <div class="intro-card reveal delay-1">
+        <div class="intro-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+        </div>
+        <p>As the global population grows and industrial activity accelerates, humanity faces pressing environmental challenges. <strong>Green Technology</strong> (or clean tech) has emerged as a crucial field dedicated to reversing ecological damage while supporting modern human development. It encompasses scientific applications, machinery, materials, and digital systems designed to produce goods with minimal environmental impact.</p>
+        <p style="margin-top: 16px;">At its core, it operates on the principle of <strong>sustainability</strong>—meeting present needs without compromising future generations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CORE GOALS ====== -->
+  <section class="section section--mint" id="goals">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill pill--green">Core Principles</span>
+        <h2>Primary <span class="accent">Objectives</span></h2>
+        <p class="section-desc">Green technology initiatives generally focus on four foundational goals to shift global industries toward eco-friendly alternatives.</p>
+      </div>
+      <div class="card-grid">
+        <div class="glass-card reveal delay-1">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Decarbonization</h3>
+          <p>Replacing fossil-fuel-dependent energy systems with low- or zero-emission alternatives.</p>
+        </div>
+        <div class="glass-card reveal delay-2">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Resource Conservation</h3>
+          <p>Optimizing the use of water, raw minerals, and land through efficient design and smart monitoring.</p>
+        </div>
+        <div class="glass-card reveal delay-3">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          </div>
+          <h3>Waste Reduction</h3>
+          <p>Moving from a "take-make-waste" linear model to a circular economy, where products are reused or recycled.</p>
+        </div>
+        <div class="glass-card reveal delay-4">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19V9a5.5 5.5 0 0 0-11 0v10"></path><path d="M6 19h11.5a2.5 2.5 0 0 0 0-5H6a2.5 2.5 0 0 1 0-5h11.5"></path></svg>
+          </div>
+          <h3>Pollution Mitigation</h3>
+          <p>Developing systems that trap, process, or eliminate harmful chemical runoffs and toxic emissions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== KEY PILLARS & SECTORS ====== -->
+  <section class="section section--dark" id="sectors">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill pill--glow">Applications</span>
+        <h2>Key Pillars & <span class="grad-text">Sectors</span></h2>
+        <p class="section-desc" style="color:rgba(255,255,255,0.7);">Green technology is not confined to one sector; it spans across multiple foundational areas of modern society.</p>
+      </div>
+
+      <div class="reveal delay-1" style="margin-bottom: 40px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+        <img src="assets/images/pillars.png" alt="Four pillars of green tech" style="width: 100%; display: block;">
+      </div>
+
+      <!-- Sector 1: Energy & ICT -->
+      <div class="sector-block reveal delay-2">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          <h3>1. Renewable Energy & ICT</h3>
+        </div>
+        <p><strong>Introduction:</strong> Replacing coal, gas, and oil with clean energy forms the backbone of green tech, powering massive sectors including global Information and Communication Technology (ICT).</p>
+        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Usage & Applications:</strong></p>
+        <ul class="feature-list">
+          <li><strong>Solar & Wind:</strong> Harnessing sunlight and wind currents for continuous base-load power.</li>
+          <li><strong>Renewable Data Centers:</strong> A large portion of global data centers operating today are powered directly by solar and wind energy.</li>
+          <li><strong>AI & Smart Automation:</strong> Smart controls automatically turn off lighting and electronics when not in use, creating massive electricity savings.</li>
+        </ul>
+      </div>
+
+      <!-- Sector 2: Civil Engineering -->
+      <div class="sector-block reveal delay-3">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M9 8h1"></path><path d="M9 12h1"></path><path d="M9 16h1"></path><path d="M14 8h1"></path><path d="M14 12h1"></path><path d="M14 16h1"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+          <h3>2. Green Architecture & Civil Eng</h3>
+        </div>
+        <p><strong>Introduction:</strong> Civil engineering is transforming traditional urban environments through modern Green Building practices that reduce energy demand.</p>
+        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Usage & Applications:</strong></p>
+        <ul class="feature-list">
+          <li><strong>Natural Lighting:</strong> Buildings are engineered to maximize natural sunlight, drastically reducing artificial lighting needs.</li>
+          <li><strong>Rainwater Harvesting:</strong> Systems collect and store rainwater, reused directly for building operations.</li>
+          <li><strong>Sustainable Materials:</strong> Incorporating low-carbon concrete, engineered timber, and recycled insulation.</li>
+        </ul>
+      </div>
+
+      <!-- Sector 3: Transportation -->
+      <div class="sector-block reveal delay-4">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+          <h3>3. Clean Transportation & Automotive</h3>
+        </div>
+        <p><strong>Introduction:</strong> Decarbonizing logistics and personal transit relies heavily on electric vehicles (EVs) and advanced manufacturing.</p>
+        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Usage & Applications:</strong></p>
+        <ul class="feature-list">
+          <li><strong>Electric Vehicles & Hydrogen:</strong> Substituting internal combustion engines with zero-emission alternatives.</li>
+          <li><strong>Recycled Manufacturing:</strong> Manufacturers use up to 100% recycled plastics and iron to build new vehicle components.</li>
+          <li><strong>Regenerative Braking:</strong> Capturing wasted kinetic energy during braking to recharge battery systems, boosting efficiency by up to 50%.</li>
+        </ul>
+      </div>
+
+      <!-- Sector 4: Healthcare & Circular Economy -->
+      <div class="sector-block reveal delay-5">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          <h3>4. Healthcare & Circular Processing</h3>
+        </div>
+        <p><strong>Introduction:</strong> Modern technology transforms service delivery while promoting sustainability and waste management.</p>
+        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Usage & Applications:</strong></p>
+        <ul class="feature-list">
+          <li><strong>Telemedicine:</strong> Digital consultations save time and drastically reduce vehicular emissions from travel.</li>
+          <li><strong>Paperless Digital Records:</strong> Digitizing healthcare eliminates paper waste, directly preventing deforestation.</li>
+          <li><strong>Waste-to-Energy:</strong> Converting solid waste into usable electricity via controlled processes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== IMPACT & CHALLENGES ====== -->
+  <section class="section section--cream" id="impact">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill pill--green">Impact</span>
+        <h2>Why It <span class="accent">Matters</span></h2>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-item reveal delay-1">
+          <div class="impact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 8l-5-5-5 5M12 3v12"></path></svg>
+          </div>
+          <h4>Climate Change Mitigation</h4>
+          <p>Reducing greenhouse gas emissions is essential to stabilizing temperatures.</p>
+        </div>
+        <div class="impact-item reveal delay-2">
+          <div class="impact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h4>Economic Resilience</h4>
+          <p>The transition generates millions of jobs in engineering, installation, and research.</p>
+        </div>
+        <div class="impact-item reveal delay-3">
+          <div class="impact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+          </div>
+          <h4>Energy Independence</h4>
+          <p>Local clean energy protects against global fuel market volatility.</p>
+        </div>
+        <div class="impact-item reveal delay-4">
+          <div class="impact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <h4>Public Health</h4>
+          <p>Decreasing pollution directly reduces respiratory health issues worldwide.</p>
+        </div>
+      </div>
+
+      <div class="reveal mt-8">
+        <h3 class="sub-heading">Challenges to Adoption</h3>
+      </div>
+      
+      <div class="reveal delay-1" style="border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: var(--shadow);">
+        <img src="assets/images/challenges.png" alt="Transition from fossil fuels to renewable energy" style="width: 100%; display: block;">
+      </div>
+
+      <div class="card-grid">
+        <div class="glass-card reveal delay-2">
+          <h4 style="margin-bottom: 8px; color: var(--slate);">High Initial Costs</h4>
+          <p style="margin:0;">Developing and deploying new green infrastructure requires heavy upfront capital investment.</p>
+        </div>
+        <div class="glass-card reveal delay-3">
+          <h4 style="margin-bottom: 8px; color: var(--slate);">Grid Integration</h4>
+          <p style="margin:0;">Renewable sources are intermittent, requiring advanced infrastructure and battery storage.</p>
+        </div>
+        <div class="glass-card reveal delay-4">
+          <h4 style="margin-bottom: 8px; color: var(--slate);">Policy Constraints</h4>
+          <p style="margin:0;">Existing global markets remain heavily tailored to legacy fossil-fuel industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== IMPACTS & SOLUTIONS ====== -->
+  <section class="section section--dark" id="solutions">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill pill--glow">Risks & Solutions</span>
+        <h2>The Hidden <span class="grad-text">Impacts</span></h2>
+      </div>
+      <div class="intro-card reveal delay-1" style="margin-bottom: 40px;">
+        <p>While green technology—such as EVs and solar panels—is widely promoted as the solution to climate change, unmanaged adoption presents significant environmental risks. Without regulatory control, switching blindly to green alternatives risks replacing old ecological hazards with new crises. True environmental progress requires evaluating the full lifecycle of emerging technologies, from raw material extraction to end-of-life disposal.</p>
+      </div>
+
+      <div class="reveal mt-8">
+        <h3 class="sub-heading" style="color: #fff;">1. The Hidden Impacts of Green Technology</h3>
+      </div>
+      
+      <div class="sector-block reveal delay-2">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <h3>Environmental Degradation from Resource Mining</h3>
+        </div>
+        <p>Transitioning the global economy to electric vehicles and solar power requires massive quantities of critical minerals like lithium, cobalt, and copper.</p>
+        <ul class="feature-list">
+          <li><strong>Ecological Destruction:</strong> Extracting these minerals involves land clearing, habitat destruction, and severe soil erosion.</li>
+          <li><strong>Toxic Pollution & Water Depletion:</strong> Mining releases toxic runoff and consumes millions of liters of groundwater.</li>
+          <li><strong>Shifting the Burden:</strong> Ceasing petroleum combustion only to destroy land and contaminate water is not genuine green innovation.</li>
+        </ul>
+      </div>
+
+      <div class="sector-block reveal delay-3">
+        <div class="sector-header">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          <h3>The Mounting E-Waste Crisis</h3>
+        </div>
+        <p>A major secondary challenge lies in managing end-of-life clean-technology infrastructure.</p>
+        <ul class="feature-list">
+          <li><strong>Complex Recyclability:</strong> Photovoltaic panels, EV batteries, and electronics are complex, making them expensive to process.</li>
+          <li><strong>Hazardous Accumulation:</strong> End-of-life solar panels and batteries risk clogging global waste management systems.</li>
+          <li><strong>Trading One Pollutant for Another:</strong> Without closed-loop recycling, society risks trading emissions for toxic e-waste.</li>
+        </ul>
+      </div>
+
+      <div class="reveal mt-8" style="margin-top: 60px;">
+        <h3 class="sub-heading" style="color: #fff;">2. Sustainable Solutions and Strategic Pathways</h3>
+      </div>
+
+      <div class="card-grid">
+        <div class="glass-card glass-card--dark reveal delay-1">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path></svg>
+          </div>
+          <h3>Conservation Over Replacement</h3>
+          <p>Green technology should not simply mean discarding old equipment for new "eco-friendly" hardware. True sustainability focuses on maximizing the utility and lifespan of existing resources before manufacturing new products.</p>
+        </div>
+        
+        <div class="glass-card glass-card--dark reveal delay-2">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Smart Automation & Reduction</h3>
+          <p>Rather than relying solely on building more power generation infrastructure, deploy intelligent software and sensors that cut off power during inactivity. Minimizing baseline electricity consumption ensures clean energy isn't overwhelmed.</p>
+        </div>
+
+        <div class="glass-card glass-card--dark reveal delay-3">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          </div>
+          <h3>100% Circular Economy</h3>
+          <p>Technological innovation must focus on end-of-life circularity. This includes manufacturing components designed for reusability and building advanced systems capable of recovering 100% of raw minerals from discarded units.</p>
+        </div>
+      </div>
+      
+      <div class="conclusion-text reveal delay-4" style="margin-top: 40px; margin-bottom: 0;">
+        <p><strong>Balancing Innovation with Ethics:</strong> Deploying emerging technologies responsibly requires striking a balance between technical progress and service ethics. Until fully circular recycling systems become reality, industries and consumers hold a collective responsibility to conserve resources and avoid unnecessary overconsumption.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== CONCLUSION ====== -->
+  <section class="section section--conclusion" id="conclusion">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="pill pill--glow">Conclusion</span>
+        <h2>A Bridge to the <span class="grad-text">Future</span></h2>
+      </div>
+      <div class="conclusion-text reveal delay-1">
+        <p>Green technology represents a vital bridge between human economic progress and environmental preservation. By embedding clean energy, smart resource management, and circular production into everyday technology—across automotive, civil engineering, ICT, and healthcare industries—green innovation provides the practical tools needed to build a cleaner, resilient, and sustainable future.</p>
+      </div>
+      <div class="final-message reveal delay-2">
+        <div style="display:flex; justify-content:center; margin-bottom: 16px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <p>Together, technology and sustainability are shaping a better tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Green Technology Presentation — Morning Assembly 2026</p>
+    <p style="margin-top:6px;">City model: "Cartoon Low Poly City (Mini Pack)" by mertkilic, CC-BY-4.0</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="hero-3d.js"></script>
+  <script src="realtime.js"></script>
+</body>
+</html>
